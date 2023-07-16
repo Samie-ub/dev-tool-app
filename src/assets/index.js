@@ -1,0 +1,21 @@
+import logo from "./logo.gif";
+import linkIcon from "./link.png";
+import computerIcon from "./computer.png";
+import design from "./design.png";
+import vedio from "./video.png";
+import extension from "./extension.png";
+import vs from "./vs.png";
+import animation from "./animation.png";
+import mockup from "./mockup.png";
+import coding from "./coding.png";
+
+export const logoIcon = logo;
+export const cardLinkIcon = linkIcon;
+export const computer = computerIcon;
+export const desginIcon = design;
+export const vedioIcon = vedio;
+export const extensionIcon = extension;
+export const vsIcon = vs;
+export const animationIcon = animation;
+export const mockupIcon = mockup;
+export const codingIcon = coding;
