@@ -15,45 +15,45 @@ import {
 export const sideBarLinks = [
   {
     label: "web development",
-    link: "/",
+    btnLink: "/web-development/tools",
     iconLink: computer,
   },
   {
     label: "designing",
-    link: "/",
+    btnLink: "/design/tools",
     iconLink: desginIcon,
   },
   {
     label: "video editing",
-    link: "/",
+    btnLink: "/video-editing/tools",
     iconLink: vedioIcon,
   },
   {
     label: "extensions",
-    link: "/",
+    btnLink: "/b",
     iconLink: extensionIcon,
   },
   {
     label: "VS Code extensions",
-    link: "/",
+    btnLink: "/v",
     iconLink: vsIcon,
 
   },
   {
     label: "Animations",
-    link: "/",
+    btnLink: "/v",
     iconLink: animationIcon,
 
   },
   {
     label: "Mockups",
-    link: "/",
+    btnLink: "/v",
     iconLink: mockupIcon,
 
   },
   {
     label: "Coding Practice",
-    link: "/",
+    btnLink: "/r",
     iconLink: codingIcon,
 
   },

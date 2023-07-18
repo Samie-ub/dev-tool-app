@@ -4,7 +4,7 @@ import { Grid } from "@mui/material";
 
 function Home() {
   return (
-  <div className="home_page">
+  <div className="top-spacing">
     <Grid container justifyContent={"flex-start"}>
       <Grid item lg={10.4}>
     <Cards/>
