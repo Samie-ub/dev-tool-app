@@ -8,6 +8,9 @@ import vs from "./vs.png";
 import animation from "./animation.png";
 import mockup from "./mockup.png";
 import coding from "./coding.png";
+import home from "./home.png";
+import contact from "./contact.png";
+import cross from "./cross.png";
 
 export const logoIcon = logo;
 export const cardLinkIcon = linkIcon;
@@ -19,3 +22,6 @@ export const vsIcon = vs;
 export const animationIcon = animation;
 export const mockupIcon = mockup;
 export const codingIcon = coding;
+export const homeIcon = home;
+export const contactIcon = contact;
+export const crossIcon = cross;

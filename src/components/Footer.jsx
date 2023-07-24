@@ -5,20 +5,14 @@ function Footer() {
   return (
     <Grid container justifyContent={"center"} className="b-r">
       <Grid item lg={11.72}>
-     
-        <div className="footer b-r">  
-          
-        <Grid container justifyContent={'space-evenly'} alignItems={'center'}>
-          <Grid item lg={3.5}>
-          <h1>Dev-tools</h1>
+        <div className="footer b-r">
+          <Grid container justifyContent={"space-evenly"} alignItems={"center"}>
+            <Grid item lg={3.5}>
+              <h1>Dev Tools</h1>
+            </Grid>
+            <Grid item lg={3.5}></Grid>
+            <Grid item lg={3.5}></Grid>
           </Grid>
-          <Grid item lg={3.5}>
-          <p>By Samie</p>
-          </Grid>
-          <Grid item lg={3.5}>
-   
-          </Grid>
-        </Grid>
         </div>
       </Grid>
     </Grid>

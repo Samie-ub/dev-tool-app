@@ -26,6 +26,8 @@ title {
 body {
   background-color: var(--primary);
   font-family: "League Spartan", sans-serif;
+  position: relative;
+ 
 }
 
 a {
@@ -35,6 +37,12 @@ a {
 /* HELPER CLASSES STARTS HERE*/
 .top-spacing {
   margin-top: var(--margin);
+}
+
+.align{
+  display: flex;
+  align-items: center;
+  height: 100vh;
 }
 
 .postion-fixed {
@@ -47,7 +55,101 @@ a {
 
 /* HELPER CLASSES ENDS HERE*/
 
+/* Loader Styles Starts Here */
+.loader {
+  width: 8px;
+  height: 40px;
+  border-radius: 4px;
+  display: block;
+  margin: 20px auto;
+  position: relative;
+  background: currentColor;
+  color: #FFF;
+  box-sizing: border-box;
+  animation: animloader 0.3s 0.3s linear infinite alternate;
+}
+
+.loader::after, .loader::before {
+  content: '';
+  width: 8px;
+  height: 40px;
+  border-radius: 4px;
+  background: currentColor;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+  box-sizing: border-box;
+  animation: animloader 0.3s  0.45s  linear infinite alternate;
+}
+.loader::before {
+  left: -20px;
+  animation-delay: 0s;
+}
+
+@keyframes animloader {
+  0%   { height: 48px} 
+  100% { height: 4px}
+}
+/* Loader Styles  Ends Here */
+
+/* Button Styling Starts Here */
+button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  padding: 0.9rem 2rem;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0.05rem;
+  font-weight: 700;
+  font-size: 17px;
+  border-radius: 500px;
+  overflow: hidden;
+  background: var(--secondary);
+  color: ghostwhite;
+border: 1px solid inherit; }
+ 
+ button span {
+  position: relative;
+  z-index: 10;
+  transition: color 0.4s;
+ }
+ 
+ button:hover span {
+  color: var(--black);
+ }
+ 
+ button::before,
+ button::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+ }
+ 
+ button::before {
+  content: "";
+  background: var(--teardnary);
+  width: 120%;
+  left: -10%;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+ }
+ 
+ button:hover::before {
+  transform: translate3d(100%, 0, 0);
+ }
+ 
+/* Button Styling Ends Here */
+
 /* Scroll Bar Styling Starts Here */
+
 /* Customize the track */
 ::-webkit-scrollbar {
   width: 10px;
@@ -74,7 +176,7 @@ a {
   height: 5rem;
   border-radius: 100%;
   position: fixed;
-  top: 2rem;
+  top: 3rem;
   left: 1.5rem;
   z-index: 9;
 }
@@ -82,6 +184,7 @@ a {
 .sidebar_container {
   background-color: var(--teardnary);
   width: 20%;
+  
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -91,6 +194,7 @@ a {
   right: 1.5rem;
   top: 3rem;
   padding: 1rem 0;
+  z-index: 0;
 }
 
 .sidebar_btn {
@@ -115,7 +219,7 @@ a {
   width: 2rem;
   position: absolute;
   left: 10%;
-  z-index: 1;
+  z-index: 1  ;
 }
 
 .sidebar_btn:after {
@@ -153,6 +257,7 @@ a {
   right: 1.5rem;
   top: 83%;
   padding: 0.5rem 0;
+  z-index: 2;
 }
 
 .social_icons {
@@ -225,6 +330,34 @@ a {
 }
 
 /* Link Animation Ends Here */
+
+/* Navigation Bar Styles Starts Here */
+
+.navigation_icon {
+  position: fixed;
+  top: 9rem;
+  left: 2.4rem;
+  width: 5%;
+  height: 10rem;
+}
+
+.navigation_icon img {
+  background-color: var(--teardnary);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  border-radius: 100%;
+  padding: 0.6rem;
+  margin: 1rem 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.navigation_icon img:hover {
+  scale: 1.2;
+}
+/* Navigation Bar Styles Ends Here */
+
+/* Card Style Starts Here */
 .card {
   border-radius: var(--radius);
   background-color: var(--teardnary);
@@ -250,6 +383,13 @@ a {
   height: 100%;
   border-top-left-radius: var(--radius);
   border-top-right-radius: var(--radius);
+}
+.link_image {
+  transition: filter 0.3s ease-in-out;
+}
+
+.link_image:hover {
+  filter: brightness(70%);
 }
 
 .card_content_container {
@@ -284,15 +424,21 @@ a {
   font-size: 0.8rem;
 }
 
+/* Card Style Ends Here */
+
+/* Footer Style Starts Here */
+
 .footer {
   background-color: var(--teardnary);
-  margin-top: 2rem;
-  padding: 2rem 0;
+  margin-top: 2.1rem;
+  margin-bottom: 2.1rem;
+  padding: 0;
   color: var(--white);
- 
 }
 
-.footer p{
-margin:  0;
-text-align: center;
+.footer p {
+  margin: 0;
+  text-align: center;
 }
+
+/* Footer Style Ends Here */

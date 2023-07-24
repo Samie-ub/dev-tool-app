@@ -9,7 +9,9 @@ import {
   vsIcon,
   animationIcon,
   mockupIcon,
-  codingIcon
+  codingIcon,
+  homeIcon,
+  contactIcon,
 } from "../assets/index";
 
 export const sideBarLinks = [
@@ -29,34 +31,42 @@ export const sideBarLinks = [
     iconLink: vedioIcon,
   },
   {
-    label: "extensions",
-    btnLink: "/b",
+    label: "Animations",
+    btnLink: "/animation/tools",
+    iconLink: animationIcon,
+  },
+  {
+    label: "Mockups",
+    btnLink: "/mockup/tools",
+    iconLink: mockupIcon,
+  },
+  {
+    label: "courses",
+    btnLink: "/courses/websites",
+    iconLink: codingIcon,
+  },
+  {
+    label: "AI Tools",
+    btnLink: "/AI/tools",
     iconLink: extensionIcon,
   },
   {
     label: "VS Code extensions",
     btnLink: "/v",
     iconLink: vsIcon,
+  },
+];
 
+export const NavigationBarLink = [
+  {
+    icon: homeIcon,
+    link:"/"
   },
   {
-    label: "Animations",
-    btnLink: "/v",
-    iconLink: animationIcon,
-
+    icon: contactIcon,
+    link:"/contact-us/message"
   },
-  {
-    label: "Mockups",
-    btnLink: "/v",
-    iconLink: mockupIcon,
 
-  },
-  {
-    label: "Coding Practice",
-    btnLink: "/r",
-    iconLink: codingIcon,
-
-  },
 ];
 
 export const icons = [
@@ -73,3 +83,18 @@ export const icons = [
     link: "https://www.instagram.com/samieullahbaig_/",
   },
 ];
+
+export const formData =[
+  {
+    label:"name",
+    inputType:"text"
+  },
+  {
+    label:"email",
+    inputType:"email"
+  },
+  {
+    label:"subject",
+    inputType:"text"
+  },
+]
