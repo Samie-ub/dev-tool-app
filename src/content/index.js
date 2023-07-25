@@ -6,12 +6,12 @@ import {
   desginIcon,
   vedioIcon,
   extensionIcon,
-  vsIcon,
   animationIcon,
   mockupIcon,
   codingIcon,
   homeIcon,
   contactIcon,
+  moreIcon
 } from "../assets/index";
 
 export const sideBarLinks = [
@@ -51,9 +51,9 @@ export const sideBarLinks = [
     iconLink: extensionIcon,
   },
   {
-    label: "VS Code extensions",
-    btnLink: "/v",
-    iconLink: vsIcon,
+    label: "more tools",
+    btnLink: "/more-tools",
+    iconLink: moreIcon,
   },
 ];
 

@@ -27,7 +27,6 @@ body {
   background-color: var(--primary);
   font-family: "League Spartan", sans-serif;
   position: relative;
- 
 }
 
 a {
@@ -39,7 +38,7 @@ a {
   margin-top: var(--margin);
 }
 
-.align{
+.align {
   display: flex;
   align-items: center;
   height: 100vh;
@@ -64,13 +63,14 @@ a {
   margin: 20px auto;
   position: relative;
   background: currentColor;
-  color: #FFF;
+  color: #fff;
   box-sizing: border-box;
   animation: animloader 0.3s 0.3s linear infinite alternate;
 }
 
-.loader::after, .loader::before {
-  content: '';
+.loader::after,
+.loader::before {
+  content: "";
   width: 8px;
   height: 40px;
   border-radius: 4px;
@@ -80,7 +80,7 @@ a {
   transform: translateY(-50%);
   left: 20px;
   box-sizing: border-box;
-  animation: animloader 0.3s  0.45s  linear infinite alternate;
+  animation: animloader 0.3s 0.45s linear infinite alternate;
 }
 .loader::before {
   left: -20px;
@@ -88,8 +88,12 @@ a {
 }
 
 @keyframes animloader {
-  0%   { height: 48px} 
-  100% { height: 4px}
+  0% {
+    height: 48px;
+  }
+  100% {
+    height: 4px;
+  }
 }
 /* Loader Styles  Ends Here */
 
@@ -111,41 +115,42 @@ button {
   overflow: hidden;
   background: var(--secondary);
   color: ghostwhite;
-border: 1px solid inherit; }
- 
- button span {
+  border: 1px solid inherit;
+}
+
+button span {
   position: relative;
   z-index: 10;
   transition: color 0.4s;
- }
- 
- button:hover span {
+}
+
+button:hover span {
   color: var(--black);
- }
- 
- button::before,
- button::after {
+}
+
+button::before,
+button::after {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
- }
- 
- button::before {
+}
+
+button::before {
   content: "";
   background: var(--teardnary);
   width: 120%;
   left: -10%;
   transform: skew(30deg);
   transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
- }
- 
- button:hover::before {
+}
+
+button:hover::before {
   transform: translate3d(100%, 0, 0);
- }
- 
+}
+
 /* Button Styling Ends Here */
 
 /* Scroll Bar Styling Starts Here */
@@ -184,7 +189,6 @@ border: 1px solid inherit; }
 .sidebar_container {
   background-color: var(--teardnary);
   width: 20%;
-  
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -219,7 +223,7 @@ border: 1px solid inherit; }
   width: 2rem;
   position: absolute;
   left: 10%;
-  z-index: 1  ;
+  z-index: 1;
 }
 
 .sidebar_btn:after {

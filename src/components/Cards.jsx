@@ -8,13 +8,14 @@ import { AnimationData } from "../assets/animation-assets";
 import { MockupData } from "../assets/mockup-assets";
 import { courseData } from "../assets/courses-assets";
 import { aitoolData } from "../assets/ai-assets";
+import { moreData } from "../assets/more-assets";
 function Cards() {
   const [mixedData, setMixedData] = useState([]);
   const [visibleCards, setVisibleCards] = useState(27);
   const [loadMoreVisible, setLoadMoreVisible] = useState(true);
 
   useEffect(() => {
-    const combinedData = [...webDev, ...DesignData,...VideoData,...AnimationData,...MockupData,...courseData,...aitoolData];
+    const combinedData = [...webDev, ...DesignData,...VideoData,...AnimationData,...MockupData,...courseData,...aitoolData,...moreData];
     const shuffledData = shuffleArray(combinedData);
     setMixedData(shuffledData);
   }, []);

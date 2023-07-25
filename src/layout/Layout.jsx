@@ -13,6 +13,7 @@ import NavigationBar from "../components/NavigationBar";
 import Mockup from "../page/Mockup";
 import Course from "../page/Course";
 import AiTools from "../page/AiTools";
+import More from "../page/More";
 
 function Layout() {
   const [loading, setLoading] = useState(true);
@@ -44,6 +45,7 @@ function Layout() {
           <Route path="/mockup/tools" element={<Mockup />} />
           <Route path="/courses/websites" element={<Course />} />
           <Route path="/AI/tools" element={<AiTools />} />
+          <Route path="/more-tools" element={<More/>} />
         </Routes>
       </Router>
     </div>
