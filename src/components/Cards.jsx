@@ -13,16 +13,12 @@ function Cards() {
   const [mixedData, setMixedData] = useState([]);
   const [visibleCards, setVisibleCards] = useState(27);
   const [loadMoreVisible, setLoadMoreVisible] = useState(true);
-
-  useEffect(() => {
-    const combinedData = [...webDev, ...DesignData,...VideoData,...AnimationData,...MockupData,...courseData,...aitoolData,...moreData];
-    const shuffledData = shuffleArray(combinedData);
-    setMixedData(shuffledData);
-  }, []);
-  
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadMoreClicked, setLoadMoreClicked] = useState(false);
 
   const handleLoadMore = () => {
     setVisibleCards(visibleCards + 6);
+    setLoadMoreClicked(true);
   };
 
   const shuffleArray = (array) => {
@@ -33,42 +29,74 @@ function Cards() {
     }
     return newArray;
   };
+  useEffect(() => {
+    const combinedData = [
+      ...webDev,
+      ...DesignData,
+      ...VideoData,
+      ...AnimationData,
+      ...MockupData,
+      ...courseData,
+      ...aitoolData,
+      ...moreData,
+    ];
+    const shuffledData = shuffleArray(combinedData);
+    setMixedData(shuffledData);
+    const loadingTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+    return () => clearTimeout(loadingTimer);
+  }, []);
+
   return (
     <div>
       <Grid container justifyContent={"center"} gap={2}>
         {mixedData.slice(0, visibleCards).map((item, index) => {
           return (
             <Grid xs={11} sm={6} md={4} lg={3}>
-              <div className="card" key={index}>
-                <div className="card_img_container">
-                  <img src={item.ImageSrc} alt="tools" />
-                </div>
-                <div className="card_content_container">
-                  <div className="tag">
-                    <span>{item.tag}</span>
+              {loadMoreClicked && isLoading ? (
+                <div className="card_loader" />
+              ) : (
+                <div className="card" key={index}>
+                  <div className="card_img_container">
+                    <img src={item.ImageSrc} alt="tools" />
                   </div>
-                  <a href={item.websiteLink} target="_blank" rel="noreferrer">
-                    <div className="card_link_container">
-                      <h1>{item.title}</h1>
-                      <img src={cardLinkIcon} className="link_image" alt="link-icon" />
+                  <div className="card_content_container">
+                    <div className="tag">
+                      <span>{item.tag}</span>
                     </div>
-                  </a>
-
-                  <p>{item.description}</p>
+                    <a href={item.websiteLink} target="_blank" rel="noreferrer">
+                      <div className="card_link_container">
+                        <h1>{item.title}</h1>
+                        <img
+                          src={cardLinkIcon}
+                          className="link_image"
+                          alt="link-icon"
+                        />
+                      </div>
+                    </a>
+                    <p>{item.description}</p>
+                  </div>
                 </div>
-              </div>
+              )}
             </Grid>
           );
         })}
       </Grid>
-      <Grid container justifyContent={"flex-end"} justifyItems={"center"} mt={5}>
+      <Grid
+        container
+        justifyContent={"flex-end"}
+        justifyItems={"center"}
+        mt={5}
+      >
         <Grid item lg={6}>
-            {loadMoreVisible && visibleCards < mixedData.length && (
-        <button onClick={handleLoadMore}><span>Load More</span></button>
-      )}
+          {loadMoreVisible && visibleCards < mixedData.length && (
+            <button onClick={handleLoadMore}>
+              <span>Load More</span>
+            </button>
+          )}
         </Grid>
       </Grid>
-    
     </div>
   );
 }

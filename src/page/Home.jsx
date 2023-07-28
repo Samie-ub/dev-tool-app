@@ -6,7 +6,7 @@ function Home() {
   return (
   <div className="top-spacing">
     <Grid container justifyContent={"flex-start"}>
-      <Grid item lg={10.4}>
+      <Grid item md={10} lg={10.4}>
     <Cards/>
       </Grid>
     </Grid>

@@ -6,8 +6,8 @@ function SocialLinks() {
   return (
    
        <Grid container>
-      <Grid item lg={12} sx={{ display: { xs: 'none',sm:'block' } }}>
-    <div className="links_container postion-fixed">
+      <Grid item md={12} lg={12} sx={{ display: { xs: 'none',sm:'block' } }}>
+    <div className="links_container">
       {icons.map((e) => {
         return (
           <a href={e.link} target="_blank" rel="noreferrer">

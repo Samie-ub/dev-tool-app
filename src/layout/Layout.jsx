@@ -33,8 +33,11 @@ function Layout() {
       <Router>
         <Navbar />
         <NavigationBar />
+        <div className="side_layout postion-fixed">
         <SocialLinks />
         <Sidebar />
+        </div>
+        
 
         <Routes>
           <Route path="/" element={<Home />} />

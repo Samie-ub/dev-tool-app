@@ -1,5 +1,6 @@
 import m1 from "./M-1.png";
 import m2 from "./M-2.png";
+import m3 from "./M-3.png";
 
 
 export const moreData = [
@@ -18,6 +19,14 @@ export const moreData = [
       "Find inspiration and keep up with the latest mobile UI design trends.",
     websiteLink: "https://screenlane.com/",
     tag: "UX/UI",
+  },
+  {
+    ImageSrc: m3,
+    title: "leetcode",
+    description:
+      "the best platform to help you enhance your skills, and prepare for interviews.",
+    websiteLink: "https://leetcode.com/",
+    tag: "code practice",
   },
  
 ];
