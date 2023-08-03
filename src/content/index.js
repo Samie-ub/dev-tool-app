@@ -16,6 +16,12 @@ import {
 
 export const sideBarLinks = [
   {
+    label: "home",
+    btnLink: "/",
+    iconLink: homeIcon,
+    showOnMobile: true,
+  },
+  {
     label: "web development",
     btnLink: "/web-development/tools",
     iconLink: computer,

@@ -14,14 +14,24 @@ import Mockup from "../page/Mockup";
 import Course from "../page/Course";
 import AiTools from "../page/AiTools";
 import More from "../page/More";
+import MobileNavbar from "../components/MobileNavbar";
+import Pegination from "../components/Pegination";
 
 function Layout() {
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3000); 
+    }, 3000);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 899);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   if (loading) {
@@ -29,16 +39,15 @@ function Layout() {
   }
 
   return (
-    <div> 
+    <div>
       <Router>
         <Navbar />
+        {isMobile && <MobileNavbar /> && <Pegination/>}
         <NavigationBar />
         <div className="side_layout postion-fixed">
-        <SocialLinks />
-        <Sidebar />
+          <SocialLinks />
+          <Sidebar />
         </div>
-        
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/web-development/tools" element={<WebDevlopment />} />
@@ -48,7 +57,7 @@ function Layout() {
           <Route path="/mockup/tools" element={<Mockup />} />
           <Route path="/courses/websites" element={<Course />} />
           <Route path="/AI/tools" element={<AiTools />} />
-          <Route path="/more-tools" element={<More/>} />
+          <Route path="/more-tools" element={<More />} />
         </Routes>
       </Router>
     </div>

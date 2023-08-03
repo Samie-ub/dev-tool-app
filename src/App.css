@@ -41,11 +41,17 @@ a {
 .align {
   display: flex;
   align-items: center;
-  height: 100vh;
+  height: 95vh;
 }
 
 .postion-fixed {
   position: fixed;
+}
+
+.nav-postion {
+  bottom: 0;
+  left: 0;
+  z-index: 999;
 }
 
 .b-r {
@@ -53,6 +59,38 @@ a {
 }
 
 /* HELPER CLASSES ENDS HERE*/
+
+/* CSS for the MobileNavbar component */
+.mobile-navbar {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem;
+  background-color: #33333356;
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+  .nav_logo {
+    display: none;
+  }
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile_link {
+  width: 24px;
+  margin: 0 auto;
+}
 
 /* Loader Styles Starts Here */
 .loader {
@@ -186,7 +224,7 @@ button:hover::before {
   z-index: 9;
 }
 
-.side_layout{
+.side_layout {
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
@@ -197,14 +235,9 @@ button:hover::before {
   width: 20%;
 }
 
-
 @media (max-width: 1200px) {
   .side_layout {
     width: 25%;
-  }
-
-  .links_container{
-    width: 100%;
   }
 }
 
@@ -218,7 +251,6 @@ button:hover::before {
   gap: 1rem;
   color: var(--white);
   padding: 1rem 0;
-
 }
 
 .sidebar_btn {
@@ -458,11 +490,15 @@ p::selection {
   width: 100%;
   height: 220px;
   border-radius: var(--radius);
-  background:
-      linear-gradient(0.25turn, transparent, var(--primary), transparent),
-      linear-gradient(var(--teardnary), var(--teardnary)),
-      linear-gradient(var(--primary), var(--primary)),
-      linear-gradient(var(--primary), var(--primary));
+  background: linear-gradient(
+      0.25turn,
+      transparent,
+      var(--primary),
+      transparent
+    ),
+    linear-gradient(var(--teardnary), var(--teardnary)),
+    linear-gradient(var(--primary), var(--primary)),
+    linear-gradient(var(--primary), var(--primary));
   background-color: var(--teardnary);
   background-repeat: no-repeat;
   background-size: 215px 220px, 215px 130px, 100px 15px, 150px 15px;
@@ -471,9 +507,55 @@ p::selection {
 }
 
 @keyframes loading {
-to {
-  background-position: 215px 0, 0 0, 15px 150px, 15px 180px;
-}
+  to {
+    background-position: 215px 0, 0 0, 15px 150px, 15px 180px;
+  }
 }
 
 /* Card Loader Styles Ends Here */
+
+/* Pegination Styles Starts Here */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 200px;
+  width: 100%;
+}
+.pagination-container {
+  background-color: var(--teardnary);
+  padding: 1rem .6rem;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.pagination-container::-webkit-scrollbar {
+  display: none; 
+}
+.pages {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+.page {
+  border-radius: 30px;
+  padding: .5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--white);
+  font-size: 0.8rem;
+  background-color: var(--primary);
+}
+
+.page img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Pegination Styles Ends Here */

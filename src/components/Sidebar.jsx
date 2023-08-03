@@ -14,7 +14,9 @@ function Sidebar() {
             const isActive = location.pathname === e.btnLink;
             const className = isActive ? "sidebar_btn active_link" : "sidebar_btn";
             return (
-              <Link  to={e.btnLink} className="router_link">
+              <Link  to={e.btnLink} className="router_link"
+              showOnMobile={e.showOnMobile}
+              >
                 <div className={className}>
                   <img src={e.iconLink} alt="icons" />
                   <p>{e.label}</p>

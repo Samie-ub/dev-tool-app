@@ -10,15 +10,22 @@ import { courseData } from "../assets/courses-assets";
 import { aitoolData } from "../assets/ai-assets";
 import { moreData } from "../assets/more-assets";
 function Cards() {
+
+  // State Initialization Starts here
   const [mixedData, setMixedData] = useState([]);
   const [visibleCards, setVisibleCards] = useState(27);
   const [loadMoreVisible, setLoadMoreVisible] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-  const [loadMoreClicked, setLoadMoreClicked] = useState(false);
-
+  // State Initialization Ends here
+  
   const handleLoadMore = () => {
+    setIsLoading(true); 
     setVisibleCards(visibleCards + 6);
-    setLoadMoreClicked(true);
+    setLoadMoreVisible(false);
+    setTimeout(() => {
+      setLoadMoreVisible(true);
+      setIsLoading(false); 
+    }, 3000);
   };
 
   const shuffleArray = (array) => {
@@ -29,6 +36,7 @@ function Cards() {
     }
     return newArray;
   };
+  
   useEffect(() => {
     const combinedData = [
       ...webDev,
@@ -51,12 +59,18 @@ function Cards() {
   return (
     <div>
       <Grid container justifyContent={"center"} gap={2}>
-        {mixedData.slice(0, visibleCards).map((item, index) => {
-          return (
-            <Grid xs={11} sm={6} md={4} lg={3}>
-              {loadMoreClicked && isLoading ? (
+        {isLoading ? (
+          <>
+            {mixedData.slice(0, visibleCards).map((item, index) => (
+              <Grid xs={10} sm={6} md={4} lg={3} key={index}>
                 <div className="card_loader" />
-              ) : (
+              </Grid>
+            ))}
+          </>
+        ) : (
+          <>
+            {mixedData.slice(0, visibleCards).map((item, index) => (
+              <Grid xs={10} sm={4.9} md={4.2} lg={3} key={index}>
                 <div className="card" key={index}>
                   <div className="card_img_container">
                     <img src={item.ImageSrc} alt="tools" />
@@ -78,10 +92,10 @@ function Cards() {
                     <p>{item.description}</p>
                   </div>
                 </div>
-              )}
-            </Grid>
-          );
-        })}
+              </Grid>
+            ))}
+          </>
+        )}
       </Grid>
       <Grid
         container
