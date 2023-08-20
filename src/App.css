@@ -473,6 +473,7 @@ p::selection {
 /* Card Loader Styles Starts Here */
 
 .card_loader {
+  
   width: 100%;
   height: 220px;
   border-radius: var(--radius);

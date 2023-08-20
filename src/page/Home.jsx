@@ -4,14 +4,17 @@ import { Grid } from "@mui/material";
 
 function Home() {
   return (
-  <div className="top-spacing">
-    <Grid container justifyContent={"flex-start"}>
-      <Grid item md={10} lg={10.4}>
-    <Cards/>
+    <div className="top-spacing">
+      <Grid
+        container
+        sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
+      >
+        <Grid item xs={10} md={10} lg={10.4}>
+          <Cards />
+        </Grid>
       </Grid>
-    </Grid>
-  </div>
-  )
+    </div>
+  );
 }
 
 export default Home;

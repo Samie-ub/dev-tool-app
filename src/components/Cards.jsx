@@ -62,7 +62,7 @@ function Cards() {
         {isLoading ? (
           <>
             {mixedData.slice(0, visibleCards).map((item, index) => (
-              <Grid xs={10} sm={6} md={4} lg={3} key={index}>
+              <Grid  xs={12} sm={6} md={4} lg={3} key={index}>
                 <div className="card_loader" />
               </Grid>
             ))}
