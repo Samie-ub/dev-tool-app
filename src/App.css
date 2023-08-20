@@ -473,7 +473,6 @@ p::selection {
 /* Card Loader Styles Starts Here */
 
 .card_loader {
-  
   width: 100%;
   height: 220px;
   border-radius: var(--radius);
@@ -539,8 +538,24 @@ p::selection {
   font-size: 0.8rem;
   background-color: var(--primary);
 }
+.page_active {
+  border-radius: 30px;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--white);
+  font-size: 0.8rem;
+  background-color: var(--secondary);
+}
 
 .page img {
+  width: 30px;
+  height: 30px;
+}
+.page_active img {
   width: 30px;
   height: 30px;
 }

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { sideBarLinks } from "../content";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Grid } from "@mui/material";
 function Pegination() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const location = useLocation(); // Get the current location
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,7 +30,9 @@ function Pegination() {
             {sideBarLinks.map((link) => (
               <Link
                 key={link.label}
-                className="page"
+                className={
+                  location.pathname === link.btnLink ? "page_active" : "page"
+                }
                 to={link.btnLink}
               >
                 <img src={link.iconLink} alt="" />
