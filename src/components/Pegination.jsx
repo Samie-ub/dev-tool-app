@@ -3,7 +3,6 @@ import { sideBarLinks } from "../content";
 import { Link } from "react-router-dom";
 import { Grid } from "@mui/material";
 function Pegination() {
-  const [currentPage, setCurrentPage] = useState(1);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
@@ -19,24 +18,27 @@ function Pegination() {
   }, []);
 
   return (
-    <Grid container justifyContent="center" className="postion-fixed nav-postion">
-    <Grid item xs={12}>
-      <div className={`pagination-container ${isMobile ? "mobile" : ""}`}>
-        <div className="pages">
-          {sideBarLinks.map((link) => (
-            <Link
-              key={link.label}
-              className={`page ${currentPage === link.label ? "active" : ""}`}
-              to={link.btnLink}
-            >
-              <img src={link.iconLink} alt="" />
-              
-            </Link>
-          ))}
+    <Grid
+      container
+      justifyContent="center"
+      className="postion-fixed nav-postion"
+    >
+      <Grid item xs={12}>
+        <div className={`pagination-container ${isMobile ? "mobile" : ""}`}>
+          <div className="pages">
+            {sideBarLinks.map((link) => (
+              <Link
+                key={link.label}
+                className="page"
+                to={link.btnLink}
+              >
+                <img src={link.iconLink} alt="" />
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
+      </Grid>
     </Grid>
-  </Grid>
   );
 }
 

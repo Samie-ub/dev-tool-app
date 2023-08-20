@@ -99,15 +99,13 @@ function Cards() {
       </Grid>
       <Grid
         container
-        justifyContent={"flex-end"}
-        justifyItems={"center"}
+        justifyContent={"center"}
+        alignItems={"center"}
         mt={5}
       >
-        <Grid item lg={6}>
+        <Grid item xs={12} md={9} lg={9} mt={5} className="postion-relative">
           {loadMoreVisible && visibleCards < mixedData.length && (
-            <button onClick={handleLoadMore}>
-              <span>Load More</span>
-            </button>
+           <div className="loader"></div>
           )}
         </Grid>
       </Grid>

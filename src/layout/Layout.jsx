@@ -14,7 +14,6 @@ import Mockup from "../page/Mockup";
 import Course from "../page/Course";
 import AiTools from "../page/AiTools";
 import More from "../page/More";
-import MobileNavbar from "../components/MobileNavbar";
 import Pegination from "../components/Pegination";
 
 function Layout() {
@@ -39,10 +38,10 @@ function Layout() {
   }
 
   return (
-    <div>
+    <div className="layout">
       <Router>
         <Navbar />
-        {isMobile && <MobileNavbar /> && <Pegination/>}
+        {isMobile && <Pegination/>}
         <NavigationBar />
         <div className="side_layout postion-fixed">
           <SocialLinks />

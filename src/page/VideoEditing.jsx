@@ -18,7 +18,6 @@ function VideoEditing() {
           {isLoading ? (
             <Grid container justifyContent={"center"} gap={2}>
               {VideoData.map((item, index) => (
-                // Show loading animation while loading
                 <Grid item xs={10} sm={6} md={4} lg={3} key={index}>
                   <div className="card_loader" />
                 </Grid>

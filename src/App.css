@@ -48,6 +48,10 @@ a {
   position: fixed;
 }
 
+.postion-relative {
+  position: absolute;
+}
+
 .nav-postion {
   bottom: 0;
   left: 0;
@@ -59,38 +63,6 @@ a {
 }
 
 /* HELPER CLASSES ENDS HERE*/
-
-/* CSS for the MobileNavbar component */
-.mobile-navbar {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  z-index: 999;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 1rem;
-  background-color: #33333356;
-  backdrop-filter: blur(10px);
-}
-
-@media (max-width: 768px) {
-  .nav_logo {
-    display: none;
-  }
-}
-
-.icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.mobile_link {
-  width: 24px;
-  margin: 0 auto;
-}
 
 /* Loader Styles Starts Here */
 .loader {
@@ -222,6 +194,20 @@ button:hover::before {
   top: 3rem;
   left: 1.5rem;
   z-index: 9;
+}
+
+.layout {
+  margin-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+  .nav_logo {
+    display: none;
+  }
+
+  .layout {
+    margin-bottom: 7rem;
+  }
 }
 
 .side_layout {
@@ -459,8 +445,8 @@ button:hover::before {
   margin: 0.9rem 0;
 }
 p::selection {
-  background-color: var(--secondary); /* Set your desired background color */
-  color: #fff; /* Set the text color for better contrast */
+  background-color: var(--secondary);
+  color: #fff;
   padding: 1rem;
 }
 
@@ -525,7 +511,7 @@ p::selection {
 }
 .pagination-container {
   background-color: var(--teardnary);
-  padding: 1rem .6rem;
+  padding: 1rem 0.6rem;
   display: flex;
   overflow-x: auto;
   scrollbar-width: none;
@@ -533,7 +519,7 @@ p::selection {
 }
 
 .pagination-container::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 .pages {
   display: flex;
@@ -542,7 +528,7 @@ p::selection {
 }
 .page {
   border-radius: 30px;
-  padding: .5rem;
+  padding: 0.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
