@@ -415,7 +415,7 @@ button:hover::before {
 }
 
 .active_link {
-  background-color: var(--secondary);
+  background-color: var(--secondary) !important;
 }
 .card_img_container img {
   width: 100%;

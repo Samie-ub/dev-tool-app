@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 
 function Sidebar() {
   const location = useLocation();
-
+  const filteredLinks = sideBarLinks.filter((link) => link.label !== "home");
   return (
     <Grid container>
       <Grid
@@ -15,7 +15,7 @@ function Sidebar() {
         lg={12}
       >
         <div className="sidebar_container">
-          {sideBarLinks.map((e) => {
+          {filteredLinks.map((e) => {
             const isActive = location.pathname === e.btnLink;
             const className = isActive
               ? "sidebar_btn active_link"

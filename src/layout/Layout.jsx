@@ -41,7 +41,7 @@ function Layout() {
     <div className="layout">
       <Router>
         <Navbar />
-        {isMobile && <Pegination/>}
+        {isMobile && <Pegination />}
         <NavigationBar />
         <div className="side_layout postion-fixed">
           <SocialLinks />
