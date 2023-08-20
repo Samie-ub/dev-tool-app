@@ -70,7 +70,7 @@ function Cards() {
         ) : (
           <>
             {mixedData.slice(0, visibleCards).map((item, index) => (
-              <Grid xs={10} sm={4.9} md={4.2} lg={3} key={index}>
+              <Grid xs={12} sm={4.9} md={4.2} lg={3} key={index}>
                 <div className="card" key={index}>
                   <div className="card_img_container">
                     <img src={item.ImageSrc} alt="tools" />
