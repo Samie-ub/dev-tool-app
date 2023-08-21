@@ -7,7 +7,7 @@ function Home() {
     <div className="top-spacing">
       <Grid
         container
-        sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
+        sx={{ justifyContent: { xs: "center", md: "flex-start" } }} 
       >
         <Grid item xs={10} md={10} lg={10.4}>
           <Cards />

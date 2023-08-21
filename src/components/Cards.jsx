@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { webDev } from "../assets/websites-assets";
 import { DesignData } from "../assets/design-assets";
 import { Grid } from "@mui/material";
@@ -10,24 +10,41 @@ import { courseData } from "../assets/courses-assets";
 import { aitoolData } from "../assets/ai-assets";
 import { moreData } from "../assets/more-assets";
 function Cards() {
-
   // State Initialization Starts here
   const [mixedData, setMixedData] = useState([]);
   const [visibleCards, setVisibleCards] = useState(27);
   const [loadMoreVisible, setLoadMoreVisible] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
+  const [loadMoreObserver, setLoadMoreObserver] = useState(null);
+  const [loadingVisible, setLoadingVisible] = useState(true);
+  const [loading, setLoading] = useState(true);
+
+  const lastCardRef = useRef(null);
+
   // State Initialization Ends here
-  
   const handleLoadMore = () => {
-    setIsLoading(true); 
+    setIsLoading(true);
     setVisibleCards(visibleCards + 6);
     setLoadMoreVisible(false);
     setTimeout(() => {
       setLoadMoreVisible(true);
-      setIsLoading(false); 
+      setIsLoading(false);
     }, 3000);
   };
 
+  const handleScroll = () => {
+    if (
+      window.innerHeight + window.scrollY >= document.body.scrollHeight &&
+      !isLoading &&
+      !loadingVisible
+    ) {
+      setLoadingVisible(true); // Start loading animation
+      setTimeout(() => {
+        setVisibleCards(visibleCards + 27);
+        setLoadingVisible(false); // Stop loading animation
+      }, 3000);
+    }
+  };
   const shuffleArray = (array) => {
     const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
@@ -36,7 +53,7 @@ function Cards() {
     }
     return newArray;
   };
-  
+
   useEffect(() => {
     const combinedData = [
       ...webDev,
@@ -56,13 +73,53 @@ function Cards() {
     return () => clearTimeout(loadingTimer);
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [visibleCards, isLoading, loadingVisible]);
+
+  useEffect(() => {
+    if (!loadingVisible) {
+      setLoading(true);
+      setTimeout(() => {
+        setVisibleCards(visibleCards + 27);
+        setLoading(false);
+      }, 3000);
+    }
+  }, [loadingVisible, visibleCards]);
+
+  useEffect(() => {
+    if (lastCardRef.current) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            setTimeout(() => {
+              handleLoadMore();
+            }, 3000);
+          }
+        },
+        { threshold: 1 }
+      );
+      setLoadMoreObserver(observer);
+      observer.observe(lastCardRef.current);
+    }
+
+    return () => {
+      if (loadMoreObserver) {
+        loadMoreObserver.disconnect();
+      }
+    };
+  }, [lastCardRef]);
   return (
     <div>
       <Grid container justifyContent={"center"} gap={2}>
         {isLoading ? (
           <>
             {mixedData.slice(0, visibleCards).map((item, index) => (
-              <Grid  xs={12} sm={6} md={4} lg={3} key={index}>
+              <Grid xs={10} sm={6} md={4} lg={3} key={index}>
                 <div className="card_loader" />
               </Grid>
             ))}
@@ -70,7 +127,7 @@ function Cards() {
         ) : (
           <>
             {mixedData.slice(0, visibleCards).map((item, index) => (
-              <Grid xs={12} sm={4.9} md={4.2} lg={3} key={index}>
+              <Grid xs={10} sm={4.9} md={4.2} lg={3} key={index}>
                 <div className="card" key={index}>
                   <div className="card_img_container">
                     <img src={item.ImageSrc} alt="tools" />
@@ -97,15 +154,10 @@ function Cards() {
           </>
         )}
       </Grid>
-      <Grid
-        container
-        justifyContent={"center"}
-        alignItems={"center"}
-        mt={5}
-      >
+      <Grid container justifyContent={"center"} alignItems={"center"} mt={5}>
         <Grid item xs={12} md={9} lg={9} mt={5} className="postion-relative">
-          {loadMoreVisible && visibleCards < mixedData.length && (
-           <div className="loader"></div>
+          {loadingVisible && (
+            <div className="loader-glass" ref={lastCardRef}></div>
           )}
         </Grid>
       </Grid>
