@@ -9,7 +9,7 @@ function Home() {
         container
         sx={{ justifyContent: { xs: "center", md: "flex-start" } }} 
       >
-        <Grid item xs={10} md={10} lg={10.4}>
+        <Grid item xs={12} md={10} lg={10.4}>
           <Cards />
         </Grid>
       </Grid>
