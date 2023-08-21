@@ -40,7 +40,7 @@ function Cards() {
     ) {
       setLoadingVisible(true); // Start loading animation
       setTimeout(() => {
-        setVisibleCards(visibleCards + 27);
+        setVisibleCards((prevVisibleCards) => prevVisibleCards + 6);
         setLoadingVisible(false); // Stop loading animation
       }, 3000);
     }
@@ -154,6 +154,8 @@ function Cards() {
           </>
         )}
       </Grid>
+      {visibleCards < mixedData.length && (
+
       <Grid container justifyContent={"center"} alignItems={"center"} mt={5}  sx={{ mb: { xs: 2, md: 0 } }}>
         <Grid item xs={12} md={9} lg={9} mt={5} className="postion-relative">
           {loadingVisible && (
@@ -161,6 +163,7 @@ function Cards() {
           )}
         </Grid>
       </Grid>
+      )}
     </div>
   );
 }
