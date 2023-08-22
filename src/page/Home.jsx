@@ -11,7 +11,7 @@ function Home() {
       >
         <Grid item xs={12} md={10} lg={10.4}>
           <Cards />
-        </Grid>s
+        </Grid>
       </Grid>
     </div>
   );
