@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { webDev } from "../assets/websites-assets";
 import { DesignData } from "../assets/design-assets";
 import { Grid } from "@mui/material";
@@ -13,38 +13,17 @@ function Cards() {
   // State Initialization Starts here
   const [mixedData, setMixedData] = useState([]);
   const [visibleCards, setVisibleCards] = useState(27);
-  const [loadMoreVisible, setLoadMoreVisible] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-  const [loadMoreObserver, setLoadMoreObserver] = useState(null);
-  const [loadingVisible, setLoadingVisible] = useState(true);
-  const [loading, setLoading] = useState(true);
-
-  const lastCardRef = useRef(null);
 
   // State Initialization Ends here
   const handleLoadMore = () => {
     setIsLoading(true);
     setVisibleCards(visibleCards + 6);
-    setLoadMoreVisible(false);
     setTimeout(() => {
-      setLoadMoreVisible(true);
       setIsLoading(false);
     }, 3000);
   };
 
-  const handleScroll = () => {
-    if (
-      window.innerHeight + window.scrollY >= document.body.scrollHeight &&
-      !isLoading &&
-      !loadingVisible
-    ) {
-      setLoadingVisible(true); // Start loading animation
-      setTimeout(() => {
-        setVisibleCards((prevVisibleCards) => prevVisibleCards + 6);
-        setLoadingVisible(false); // Stop loading animation
-      }, 3000);
-    }
-  };
   const shuffleArray = (array) => {
     const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
@@ -73,46 +52,6 @@ function Cards() {
     return () => clearTimeout(loadingTimer);
   }, []);
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [visibleCards, isLoading, loadingVisible]);
-
-  useEffect(() => {
-    if (!loadingVisible) {
-      setLoading(true);
-      setTimeout(() => {
-        setVisibleCards(visibleCards + 27);
-        setLoading(false);
-      }, 3000);
-    }
-  }, [loadingVisible, visibleCards]);
-
-  useEffect(() => {
-    if (lastCardRef.current) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            setTimeout(() => {
-              handleLoadMore();
-            }, 3000);
-          }
-        },
-        { threshold: 1 }
-      );
-      setLoadMoreObserver(observer);
-      observer.observe(lastCardRef.current);
-    }
-
-    return () => {
-      if (loadMoreObserver) {
-        loadMoreObserver.disconnect();
-      }
-    };
-  }, [lastCardRef]);
   return (
     <div>
       <Grid container justifyContent={"center"} gap={2}>
@@ -155,14 +94,33 @@ function Cards() {
         )}
       </Grid>
       {visibleCards < mixedData.length && (
-
-      <Grid container justifyContent={"center"} alignItems={"center"} mt={5}  sx={{ mb: { xs: 2, md: 0 } }}>
-        <Grid item xs={12} md={9} lg={9} mt={5} className="postion-relative">
-          {loadingVisible && (
-            <div className="loader-glass" ref={lastCardRef}></div>
-          )}
+        <Grid
+          container
+          justifyContent={"center"}
+          alignItems={"center"}
+          mt={5}
+          sx={{ mb: { xs: 2, md: 0 } }}
+        >
+          <Grid item xs={12} md={9} lg={9} mt={5} className="postion-relative">
+            <button onClick={handleLoadMore}>
+              <p></p>
+              <svg
+                stroke-width="4"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                fill="none"
+                class="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                ></path>
+              </svg>
+            </button>
+          </Grid>
         </Grid>
-      </Grid>
       )}
     </div>
   );
