@@ -34,6 +34,7 @@ function Pegination() {
                   location.pathname === link.btnLink ? "page_active" : "page"
                 }
                 to={link.btnLink}
+                target={link.target}
               >
                 <img src={link.iconLink} alt="" />
               </Link>

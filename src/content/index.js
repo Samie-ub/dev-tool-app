@@ -22,6 +22,13 @@ export const sideBarLinks = [
     showOnMobile: true,
   },
   {
+    label: "home",
+    btnLink: "https://contact-website.vercel.app/",
+    iconLink: contactIcon,
+    showOnMobile: true,
+    target:"_blank"
+  },
+  {
     label: "web development",
     btnLink: "/web-development/tools",
     iconLink: computer,
@@ -70,7 +77,8 @@ export const NavigationBarLink = [
   },
   {
     icon: contactIcon,
-    link:"/contact-us/message"
+    link:"https://contact-website.vercel.app/",
+    target:"_blank"
   },
 
 ];

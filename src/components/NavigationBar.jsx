@@ -20,7 +20,7 @@ function NavigationBar() {
   return (
     <div className="navigation_icon">
       {NavigationBarLink.map((e) => (
-        <Link to={e.link} key={e.link}>
+        <Link to={e.link} key={e.link} target={e.target}>
           <img src={e.icon} alt="icon"  className={
           location.pathname === e.link ? "active_link !important" : ""
         }/>
