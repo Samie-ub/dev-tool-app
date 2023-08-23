@@ -99,7 +99,7 @@ function Cards() {
           justifyContent={"center"}
           alignItems={"center"}
           mt={5}
-          sx={{ mb: { xs: 2, md: 0 } }}
+          sx={{ mb: { xs: 4, md: 0 } }}
         >
           <Grid item xs={12} md={9} lg={9} mt={5} className="postion-relative">
             <button onClick={handleLoadMore}>
