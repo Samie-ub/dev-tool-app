@@ -11,6 +11,7 @@ import home from "./home.png";
 import contact from "./contact.png";
 import cross from "./cross.png";
 import more from "./more.png";
+import uxui from "./uxui.png"
 
 export const logoIcon = logo;
 export const cardLinkIcon = linkIcon;
@@ -25,3 +26,4 @@ export const homeIcon = home;
 export const contactIcon = contact;
 export const crossIcon = cross;
 export const moreIcon = more;
+export const uxuiIcon = uxui;

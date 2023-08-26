@@ -15,6 +15,7 @@ import Course from "../page/Course";
 import AiTools from "../page/AiTools";
 import More from "../page/More";
 import Pegination from "../components/Pegination";
+import Uxui from "../page/Uxui";
 
 function Layout() {
   const [loading, setLoading] = useState(true);
@@ -57,6 +58,7 @@ function Layout() {
           <Route path="/courses/websites" element={<Course />} />
           <Route path="/AI/tools" element={<AiTools />} />
           <Route path="/more-tools" element={<More />} />
+          <Route path="/Ux-Ui/tools" element={<Uxui />} />
         </Routes>
       </Router>
     </div>

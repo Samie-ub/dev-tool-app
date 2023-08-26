@@ -11,7 +11,8 @@ import {
   codingIcon,
   homeIcon,
   contactIcon,
-  moreIcon
+  moreIcon,
+  uxuiIcon
 } from "../assets/index";
 
 export const sideBarLinks = [
@@ -32,6 +33,11 @@ export const sideBarLinks = [
     label: "web development",
     btnLink: "/web-development/tools",
     iconLink: computer,
+  },
+  {
+    label: "Ux Ui",
+    btnLink: "/Ux-Ui/tools",
+    iconLink: uxuiIcon,
   },
   {
     label: "designing",

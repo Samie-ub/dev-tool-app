@@ -9,6 +9,7 @@ import { MockupData } from "../assets/mockup-assets";
 import { courseData } from "../assets/courses-assets";
 import { aitoolData } from "../assets/ai-assets";
 import { moreData } from "../assets/more-assets";
+import { uxuiData } from "../assets/uxui-assets";
 function Cards() {
   // State Initialization Starts here
   const [mixedData, setMixedData] = useState([]);
@@ -36,13 +37,14 @@ function Cards() {
   useEffect(() => {
     const combinedData = [
       ...webDev,
+      ...uxuiData,
       ...DesignData,
       ...VideoData,
       ...AnimationData,
       ...MockupData,
       ...courseData,
       ...aitoolData,
-      ...moreData,
+      ...moreData
     ];
     const shuffledData = shuffleArray(combinedData);
     setMixedData(shuffledData);

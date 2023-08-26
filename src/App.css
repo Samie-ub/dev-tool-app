@@ -20,7 +20,7 @@ title {
   --black: #000000;
   --padding: 1rem;
   --radius: 15px;
-  --margin: 2.8rem;
+  --margin: 1.5rem;
 }
 
 body {
@@ -227,7 +227,7 @@ button svg {
   height: 5rem;
   border-radius: 100%;
   position: fixed;
-  top: 3rem;
+  top: 1.5rem;
   left: 1.5rem;
   z-index: 9;
 }
@@ -415,7 +415,7 @@ button svg {
 
 .navigation_icon {
   position: fixed;
-  top: 9rem;
+  top: 6.5rem;
   left: 2.4rem;
   width: 5%;
   height: 10rem;
