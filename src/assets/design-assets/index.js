@@ -4,6 +4,7 @@ import d3 from "./D-3.png";
 import d4 from "./D-4.png";
 import d5 from "./D-5.png";
 import d6 from "./D-6.png";
+import d7 from "./D-7.png";
 
 export const DesignData = [
   {
@@ -11,41 +12,48 @@ export const DesignData = [
     title: "colorhunt.co",
     description: "Color Palettes for Designers and Artists",
     websiteLink: "https://colorhunt.co/",
-    tag:"design"
+    tag: "design",
   },
   {
     ImageSrc: d2,
     title: "logology.co",
     description: "Get a designer-quality logo for your startup.",
     websiteLink: "https://www.logology.co/",
-    tag:"design"
+    tag: "design",
   },
   {
     ImageSrc: d3,
     title: "lapa.ninja",
     description: "The Best Landing Page Examples Learn Design.",
     websiteLink: "https://www.lapa.ninja/",
-    tag:"design"
+    tag: "design",
   },
   {
     ImageSrc: d4,
     title: "bigheads.io",
-    description: "Randomly Generated Characters for Your Apps & Games",
+    description: "Randomly Generated Characters for Your Apps & Games.",
     websiteLink: "https://bigheads.io/",
-    tag:"design"
+    tag: "design",
   },
   {
     ImageSrc: d5,
     title: "gprm.itsvg.in",
-    description: "Best Profile Generator",
+    description: "Best Profile Generator.",
     websiteLink: "https://gprm.itsvg.in/",
-    tag:"design"
+    tag: "design",
   },
   {
     ImageSrc: d6,
     title: "placeit.net",
-    description: "The easiest way to create professional designs for free",
+    description: "The easiest way to create professional designs for free.",
     websiteLink: "https://placeit.net/",
-    tag:"design"
+    tag: "design",
+  },
+  {
+    ImageSrc: d7,
+    title: "pixcap.com",
+    description: " 10,000+ 3D elements to create your design.",
+    websiteLink: "https://pixcap.com/",
+    tag: "design",
   },
 ];

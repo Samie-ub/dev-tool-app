@@ -4,6 +4,9 @@ import web3 from "./W-3.png";
 import web4 from "./W-4.png";
 import web5 from "./W-5.png";
 import web6 from "./W-6.png";
+import web7 from "./W-7.png";
+import web8 from "./W-8.png";
+import web9 from "./W-9.png";
 
 export const webDev = [
   {
@@ -46,6 +49,27 @@ export const webDev = [
     title: "michalsnik",
     description: "Animate On Scroll Library",
     websiteLink: "https://michalsnik.github.io/aos/",
+    tag: "web development",
+  },
+  {
+    ImageSrc: web7,
+    title: "transition",
+    description: "Drop-in CSS transitions.",
+    websiteLink: "https://www.transition.style",
+    tag: "web development",
+  },
+  {
+    ImageSrc: web8,
+    title: "hype4",
+    description: "Best design and developer tools.",
+    websiteLink: "https://hype4.academy/tools",
+    tag: "web development",
+  },
+  {
+    ImageSrc: web9,
+    title: "uiball.com",
+    description: "Free loaders & spinners for your next project.",
+    websiteLink: "https://uiball.com/",
     tag: "web development",
   },
 ];
