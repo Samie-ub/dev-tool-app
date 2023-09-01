@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 import SingleCard from "../components/SingleCard";
-import { courseData } from '../assets/courses-assets';
+import { courseData } from "../assets/courses-assets";
+import { shuffleArray } from "../utils/utils";
+
 function Course() {
   const [isLoading, setIsLoading] = useState(true);
+  const [shuffledData, setShuffledData] = useState([]);
   useEffect(() => {
     // Simulate loading delay for 3 seconds
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
+
+    const shuffledData = shuffleArray(courseData);
+    setShuffledData(shuffledData);
   }, []);
   return (
     <div className="top-spacing">
-   <Grid container justifyContent={"flex-start"} gap={2}>
+      <Grid container justifyContent={"flex-start"} gap={2}>
         <Grid item xs={12} lg={10.4}>
           {isLoading ? (
             <Grid container justifyContent={"center"} gap={2}>
@@ -25,7 +31,7 @@ function Course() {
             </Grid>
           ) : (
             <Grid container justifyContent={"center"} gap={2}>
-              {courseData.map((item, index) => (
+              {shuffledData.map((item, index) => (
                 <Grid item xs={10} sm={6} md={4} lg={3}>
                   <SingleCard
                     key={index}
@@ -41,8 +47,8 @@ function Course() {
           )}
         </Grid>
       </Grid>
-  </div>
-  )
+    </div>
+  );
 }
 
-export default Course
+export default Course;

@@ -2,14 +2,19 @@ import React, { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 import SingleCard from "../components/SingleCard";
 import { AnimationData } from "../assets/animation-assets";
+import { shuffleArray } from "../utils/utils";
 
 function Animation() {
   const [isLoading, setIsLoading] = useState(true);
+  const [shuffledData, setShuffledData] = useState([]);
   useEffect(() => {
     // Simulate loading delay for 3 seconds
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
+
+    const shuffledData = shuffleArray(AnimationData);
+    setShuffledData(shuffledData);
   }, []);
   return (
     <div className="top-spacing">
@@ -26,7 +31,7 @@ function Animation() {
             </Grid>
           ) : (
             <Grid container justifyContent={"center"} gap={2}>
-              {AnimationData.map((item, index) => (
+              {shuffledData.map((item, index) => (
                 <Grid item xs={10} sm={6} md={4} lg={3}>
                   <SingleCard
                     key={index}
