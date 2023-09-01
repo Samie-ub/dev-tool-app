@@ -3,6 +3,8 @@ import c2 from "./C-2.png";
 import c3 from "./C-3.png";
 import c4 from "./C-4.png";
 import c5 from "./C-5.png";
+import c6 from "./C-6.png";
+import c7 from "./C-7.png";
 
 export const courseData = [
   {
@@ -43,6 +45,22 @@ export const courseData = [
     description:
       "a game where you help Froggy and friends by writing CSS code.",
     websiteLink: "https://flexboxfroggy.com/",
+    tag: "course",
+  },
+  {
+    ImageSrc: c6,
+    title: "grow.google",
+    description:
+      "Receive professional training designed by Google.",
+    websiteLink: "https://grow.google/intl/en_pk/certificates/",
+    tag: "course",
+  },
+  {
+    ImageSrc: c7,
+    title: "hackerrank",
+    description:
+      "Take the HackerRank Skills Certification Test and showcase your knowledge.",
+    websiteLink: "https://www.hackerrank.com/skills-verification",
     tag: "course",
   },
 ];
